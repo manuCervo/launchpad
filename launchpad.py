@@ -39,7 +39,7 @@ class Launchpad:
         """starts listening for button events, calling the inputRecived method everytime an event occurs
 
         refreshTime: how many seconds the listener should wait before trying to read the next event
-    """
+        """
         Thread(target=self.listen, args=(refreshTime,)).start()
 
     def setButtonLight(self, row, column, state):
@@ -50,10 +50,10 @@ class Launchpad:
             state: could be either a boolean or a Color, in the first case, the light will be turned yellow if the state is true, or it will be turned off. otherwise, the light will be turned in the specified Color
         """
         if isinstance(state, bool):
-                if state:
-                    state = 127
-                else:
-                    state = 0
+            if state:
+                state = 127
+            else:
+                state = 0
         else:
             state = state.value
         if row == 0:
@@ -67,14 +67,14 @@ class Launchpad:
     def resetLights(self):
         """turns off all the lights"""
         for i in range(0, 9):
-                for j in range(0, 10):
-                    self.setButtonLight(i, j, False)
+            for j in range(0, 10):
+                self.setButtonLight(i, j, False)
 
     def testLights(self):
         """just for testing, turns on and off all the lights,one by one."""
         for i in range(0, 9):
-                for j in range(0, 10):
-                    self.setButtonLight(i, j, True)
+            for j in range(0, 10):
+                self.setButtonLight(i, j, True)
 
         time.sleep(1)
 
